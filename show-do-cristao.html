@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💰 Show do Cristão — Aventureiros</title>
+  <link rel="stylesheet" href="show-do-cristao.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">💰</div>
+      <h1>Show do Cristão</h1>
+      <p>Respondam à pirâmide de 10 perguntas e acumulem pontos!</p>
+      <div class="start-rules">
+        <div>💰 <strong>10 perguntas</strong> com valores crescentes</div>
+        <div>✅ Acertou → avança e fica com o prêmio da pergunta</div>
+        <div>❌ Errou → para, mas fica com o prêmio da última pergunta certa</div>
+        <div>🛑 Pode <strong>parar a qualquer momento</strong> e guardar seus pontos</div>
+        <div>🏆 Quem fizer mais pontos ao final vence!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-info-text">Equipe 1 de 4</span>
+      </div>
+      <h1>💰 Show do Cristão</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <aside class="pyramid" id="pyramid">
+        <!-- Preenchido pelo JS: nível 10 no topo, nível 1 na base -->
+      </aside>
+
+      <section class="game-area">
+        <div class="stats-bar">
+          <span class="stat">Pergunta <strong id="stat-level">1</strong> de 10</span>
+          <span class="stat-sep">·</span>
+          <span class="stat">Vale <strong id="stat-value">1</strong> pt</span>
+          <span class="stat-sep">·</span>
+          <span class="stat">Conquistado <strong id="stat-total">0</strong> pts</span>
+        </div>
+
+        <div class="timer-box" id="timer-box">
+          <div class="timer-fill" id="timer-fill"></div>
+          <span class="timer-text" id="timer-text">30</span>
+        </div>
+
+        <div class="question-card" id="question-card">
+          <p id="question-text">Carregando pergunta...</p>
+        </div>
+
+        <div class="options-grid" id="options-grid"></div>
+
+        <div class="feedback-panel hidden" id="feedback-panel">
+          <div class="feedback-icon" id="feedback-icon">✅</div>
+          <div class="feedback-body">
+            <div class="feedback-title" id="feedback-title"></div>
+            <div class="feedback-text" id="feedback-text"></div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button id="stop-btn" class="btn-stop hidden">🛑 Parar e Guardar</button>
+          <button id="next-btn" class="btn-next hidden">Próximo →</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- MODAL MILHÃO -->
+  <div id="million-modal" class="modal hidden">
+    <div class="modal-content million">
+      <div class="million-emoji">💰</div>
+      <h2>MILHÃO!</h2>
+      <div id="million-team"></div>
+      <div id="million-points"></div>
+      <button id="million-continue-btn" class="btn-primary">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="show-do-cristao.js"></script>
+</body>
+</html>

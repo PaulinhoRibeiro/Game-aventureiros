@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏕️ Plataforma dos Aventureiros</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 40%, #ffd3b6 100%);
+      min-height: 100vh;
+      color: #2d3d2a;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 30px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      color: #2d5a3d;
+      text-shadow: 2px 2px 0 rgba(255,255,255,0.8);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      color: #4a6b4a;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .game-card {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 3px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-card:not(.coming-soon):hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      border-color: #4CAF50;
+    }
+
+    .card-emoji {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .card-body h2 {
+      font-size: 1.3rem;
+      color: #2d5a3d;
+      margin-bottom: 6px;
+    }
+
+    .card-body p {
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .card-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .card-meta span {
+      background: #f0f7f0;
+      color: #4a6b4a;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .play-btn {
+      display: inline-block;
+      padding: 12px 26px;
+      background: linear-gradient(135deg, #4CAF50, #2E7D32);
+      color: white;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-align: center;
+      margin-top: auto;
+      align-self: flex-start;
+      box-shadow: 0 4px 0 #1B5E20;
+      transition: all 0.15s;
+    }
+
+    .game-card:hover .play-btn {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #1B5E20;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #4a6b4a;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.9rem; }
+      main { padding: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏕️ Plataforma de game dos Aventureiros</h1>
+    <p>Escolha um jogo e divirta-se com sua equipe!</p>
+  </header>
+
+  <main>
+
+    <!-- JOGO 1: Tabuleiro -->
+    <a href="tabuleiro.html" class="game-card">
+      <div class="card-emoji">🎲</div>
+      <div class="card-body">
+        <h2>Tabuleiro dos Aventureiros</h2>
+        <p>Jogo de tabuleiro com dado animado, perguntas e casas especiais (estrela, dado e foguete).</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 30-45 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+
+    <!-- JOGO 2: Quiz Relâmpago -->
+    <a href="quiz-relampago.html" class="game-card">
+      <div class="card-emoji">⚡</div>
+      <div class="card-body">
+        <h2>Quiz Relâmpago</h2>
+        <p>Perguntas rápidas com cronômetro de 15s. Acertos em sequência valem mais pontos (até 5x)!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 15-20 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+
+    <!-- JOGO 3: Jeopardy -->
+    <a href="jeopardy.html" class="game-card">
+      <div class="card-emoji">💡</div>
+      <div class="card-body">
+        <h2>Jeopardy dos Aventureiros</h2>
+        <p>Quadro de 5 categorias e 4 valores. Escolha o tema e os pontos — mas cuidado: errar tira pontos!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 25-35 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+
+    <!-- JOGO 4: Jogo da Velha -->
+    <a href="jogo-da-velha.html" class="game-card">
+      <div class="card-emoji">⭕</div>
+      <div class="card-body">
+        <h2>Jogo da Velha</h2>
+        <p>Marque X ou O acertando perguntas. Estratégia e conhecimento juntos, melhor de 5 rodadas!</p>
+        <div class="card-meta">
+          <span>👥 2 equipes</span>
+          <span>⏱️ 15-20 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+
+    <!-- JOGO 5: Roleta de Desafios -->
+    <a href="roleta.html" class="game-card">
+      <div class="card-emoji">🎡</div>
+      <div class="card-body">
+        <h2>Roleta de Desafios</h2>
+        <p>Gire a roleta e encare o desafio sorteado: pergunta, atividade física, bônus ou perde a vez!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 20-30 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+
+    <!-- JOGO 6: Sala de Escape -->
+    <a href="sala-de-escape.html" class="game-card">
+      <div class="card-emoji">🔐</div>
+      <div class="card-body">
+        <h2>Sala de Escape</h2>
+        <p>Simon das Cores em 6 portas progressivas. Memorizem as sequências e escapem com o tesouro!</p>
+        <div class="card-meta">
+          <span>👥 1 equipe (coop)</span>
+          <span>⏱️ 12 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 7: Jogo da Memória -->
+    <a href="memoria.html" class="game-card">
+      <div class="card-emoji">🃏</div>
+      <div class="card-body">
+        <h2>Jogo da Memória</h2>
+        <p>Encontrem os pares de símbolos do Clube. Acertou, joga de novo. Errou, passa a vez!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 15-20 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+     <!-- JOGO 8: Verdadeiro ou Falso -->
+    <a href="verdadeiro-falso.html" class="game-card">
+      <div class="card-emoji">✅❌</div>
+      <div class="card-body">
+        <h2>Verdadeiro ou Falso</h2>
+        <p>Uma afirmação, 15 segundos e uma decisão. Acertou, ganha ponto. Errou, não pontua!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 10-15 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+  <!-- JOGO 9: Adivinha o Emoji -->
+    <a href="adivinha-emoji.html" class="game-card">
+      <div class="card-emoji">🎭</div>
+      <div class="card-body">
+        <h2>Adivinha o Emoji</h2>
+        <p>Uma sequência de emojis esconde uma palavra do clube. Observem e escolham a resposta certa!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 10-15 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 10: Forca dos Aventureiros -->
+    <a href="forca.html" class="game-card">
+      <div class="card-emoji">🔤</div>
+      <div class="card-body">
+        <h2>Forca dos Aventureiros</h2>
+        <p>Descubram a palavra secreta antes que o boneco seja enforcado. 6 erros e a vez passa!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 15-20 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 11: Show do Cristão -->
+    <a href="show-do-cristao.html" class="game-card">
+      <div class="card-emoji">💰</div>
+      <div class="card-body">
+        <h2>Show do Cristão</h2>
+        <p>Pirâmide de 10 perguntas com valores crescentes. Podem parar e guardar pontos a qualquer momento!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 20-30 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 12: Ligue 4 -->
+    <a href="ligue-4.html" class="game-card">
+      <div class="card-emoji">🔴🟡</div>
+      <div class="card-body">
+        <h2>Ligue 4</h2>
+        <p>Acertem a pergunta para colocar a peça. Estratégia e conhecimento juntos — 4 em linha vence!</p>
+        <div class="card-meta">
+          <span>👥 2 equipes</span>
+          <span>⏱️ 15-25 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+     <!-- JOGO 13: Corrida das Palavras -->
+    <a href="corrida-palavras.html" class="game-card">
+      <div class="card-emoji">⚡</div>
+      <div class="card-body">
+        <h2>Corrida das Palavras</h2>
+        <p>Reorganizem as letras e formem a palavra antes do tempo acabar. Rápido e desafiador!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 10-15 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+    <!-- JOGO 14: Labirinto Aventureiro -->
+    <a href="labirinto.html" class="game-card">
+      <div class="card-emoji">🌲</div>
+      <div class="card-body">
+        <h2>Labirinto Aventureiro</h2>
+        <p>Ajude o Ursinho Beto a atravessar 5 estágios da floresta até o acampamento. 3 vidas para chegar!</p>
+        <div class="card-meta">
+          <span>👥 Cooperativo</span>
+          <span>⏱️ 10-15 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 15: Batalha dos Dados -->
+    <a href="batalha-dados.html" class="game-card">
+      <div class="card-emoji">🎯</div>
+      <div class="card-body">
+        <h2>Batalha dos Dados</h2>
+        <p>Acerte as perguntas para atacar com o dado. Golpe crítico no 6! Última equipe de pé vence.</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 15-25 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 16: Caça-palavras -->
+    <a href="caca-palavras.html" class="game-card">
+      <div class="card-emoji">🧩</div>
+      <div class="card-body">
+        <h2>Caça-palavras</h2>
+        <p>Encontrem as palavras escondidas na grade! Horizontal, vertical e diagonal — frente e trás.</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 15-20 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+    <!-- JOGO 17: Bingo dos Aventureiros -->
+    <a href="bingo.html" class="game-card">
+      <div class="card-emoji">🎪</div>
+      <div class="card-body">
+        <h2>Bingo dos Aventureiros</h2>
+        <p>Cartelas únicas por equipe, sorteio animado e verificação automática. Completa uma linha e vence!</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 15-25 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+        <!-- JOGO 18: Trinca Aventureira (Match 3) -->
+    <a href="trinca.html" class="game-card">
+      <div class="card-emoji">💎</div>
+      <div class="card-body">
+        <h2>Trinca Aventureira</h2>
+        <p>Match 3 com símbolos do clube! Combinem 3+ iguais, façam combos e explodam a grade em 60s.</p>
+        <div class="card-meta">
+          <span>👥 2-4 equipes</span>
+          <span>⏱️ 10-15 min</span>
+        </div>
+      </div>
+      <span class="play-btn">▶ Jogar</span>
+    </a>
+  </main>
+
+  <footer>
+    Clube de Aventureiros · Acampamento  🏕️
+  </footer>
+
+</body>
+</html>

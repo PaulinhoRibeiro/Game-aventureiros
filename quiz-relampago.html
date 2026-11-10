@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ Quiz Relâmpago — Aventureiros</title>
+  <link rel="stylesheet" href="quiz-relampago.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">⚡</div>
+      <h1>Quiz Relâmpago</h1>
+      <p>15 segundos por pergunta.<br>Acertos em sequência valem <strong>mais pontos</strong>!</p>
+      <div class="start-rules">
+        <div>⚡ 1º acerto → +1 ponto</div>
+        <div>⚡ 2º seguido → +2 pontos</div>
+        <div>⚡ 3º seguido → +3 pontos</div>
+        <div>⚡ 4º seguido → +4 pontos</div>
+        <div>⚡ 5º seguido → +5 pontos (máximo)</div>
+        <div>❌ Errar ou acabar o tempo → volta para 1x</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="quiz-header">
+      <div class="team-badge" id="team-badge">
+        <span class="team-emoji" id="team-emoji">🐻</span>
+        <span class="team-name" id="team-name">Equipe Urso</span>
+      </div>
+      <div class="multiplier" id="multiplier">⚡ 1x</div>
+      <div class="timer" id="timer">15</div>
+    </header>
+
+    <main class="quiz-main">
+      <div class="question-card">
+        <p id="question-text">Carregando pergunta...</p>
+      </div>
+
+      <div class="options-grid" id="options-container"></div>
+
+      <div class="feedback" id="feedback"></div>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- TELA DE FIM -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="quiz-relampago.js"></script>
+</body>
+</html>

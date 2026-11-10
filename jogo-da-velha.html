@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⭕ Jogo da Velha — Aventureiros</title>
+  <link rel="stylesheet" href="jogo-da-velha.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">⭕</div>
+      <h1>Jogo da Velha</h1>
+      <p>Para marcar uma casa, a equipe precisa <strong>acertar a pergunta</strong>!</p>
+      <div class="start-rules">
+        <div>⭕ 2 equipes: <strong>🐻 Urso (X)</strong> vs <strong>🐰 Coelho (O)</strong></div>
+        <div>✖️ Acertou a pergunta → marca a casa</div>
+        <div>❌ Errou → a vez passa para o outro time</div>
+        <div>🏆 Melhor de 5 rodadas — quem fizer 3 primeiros vence!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-number">Rodada 1</span>
+        <span class="round-sep">·</span>
+        <span id="series-score">0 × 0</span>
+      </div>
+      <h1>⭕ Jogo da Velha</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="board" id="board"></div>
+    </main>
+
+    <footer class="series-footer" id="series-footer"></footer>
+  </div>
+
+  <!-- MODAL DE PERGUNTA -->
+  <div id="question-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="question-header">
+        <span id="question-team-badge">🐻 Equipe Urso</span>
+        <span id="question-cell-badge">Casa central</span>
+      </div>
+      <p id="question-text">Pergunta aqui</p>
+      <div id="options-container"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="continue-btn" class="hidden">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE FIM DE RODADA -->
+  <div id="round-end-modal" class="modal hidden">
+    <div class="modal-content round-end">
+      <h2 id="round-end-title">🎉 Rodada vencida!</h2>
+      <div id="round-end-winner"></div>
+      <div id="round-end-score"></div>
+      <button id="next-round-btn" class="btn-primary">▶ Próxima Rodada</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE FIM DE JOGO -->
+  <div id="game-end-modal" class="modal hidden">
+    <div class="modal-content game-end">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="game-end-winner"></div>
+      <div id="game-end-score"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="jogo-da-velha.js"></script>
+</body>
+</html>

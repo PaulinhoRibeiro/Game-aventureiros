@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎪 Bingo dos Aventureiros</title>
+  <link rel="stylesheet" href="bingo.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn no-print">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🎪</div>
+      <h1>Bingo dos Aventureiros</h1>
+      <p>Cada equipe recebe uma cartela única. Quem completar uma linha primeiro vence!</p>
+      <div class="start-rules">
+        <div>🎫 Cada equipe tem uma cartela <strong>5×5</strong> (centro é grátis)</div>
+        <div>🎲 O líder sorteia as palavras uma a uma</div>
+        <div>✅ Marque na cartela quando sua palavra sair</div>
+        <div>🎉 Completa <strong>linha, coluna ou diagonal</strong> → BINGO!</div>
+        <div>🖨️ Imprima as cartelas para as equipes marcarem em papel</div>
+        <div>🏆 Primeira equipe a completar uma linha vence!</div>
+      </div>
+      <div class="start-actions">
+        <button id="print-cards-btn" class="btn-secondary">🖨️ Imprimir Cartelas</button>
+        <button id="start-btn" class="btn-primary">🎲 Começar Jogo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA DE IMPRESSÃO -->
+  <div id="print-screen" class="screen hidden">
+    <div class="print-actions no-print">
+      <button id="back-btn" class="btn-secondary">← Voltar</button>
+      <button id="do-print-btn" class="btn-primary">🖨️ Imprimir Agora</button>
+    </div>
+    <div class="print-cards" id="print-cards"></div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <h1>🎪 Bingo dos Aventureiros</h1>
+      <div class="counter">
+        <span id="drawn-count">0</span> palavras sorteadas
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="drawer-section">
+        <div class="word-display" id="word-display">
+          <span class="word-placeholder">?</span>
+        </div>
+        <button id="draw-btn" class="btn-draw">🎲 Sortear Palavra</button>
+      </div>
+
+      <div class="side-sections">
+        <div class="history-section">
+          <h3>📜 Já saíram:</h3>
+          <div class="history-list" id="history-list">
+            <div class="history-empty">Nenhuma palavra sorteada ainda</div>
+          </div>
+        </div>
+
+        <div class="verify-section">
+          <h3>🎉 Alguém fez BINGO?</h3>
+          <div class="verify-buttons" id="verify-buttons"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL DE VERIFICAÇÃO -->
+  <div id="verify-modal" class="modal hidden">
+    <div class="modal-content verify-content">
+      <div class="verify-header">
+        <span class="verify-team-emoji" id="verify-emoji">🐻</span>
+        <span class="verify-team-name" id="verify-name">Equipe Urso</span>
+      </div>
+      <div class="verify-result" id="verify-result"></div>
+      <div class="verify-card" id="verify-card"></div>
+      <button id="verify-continue-btn" class="btn-primary">Continuar</button>
+    </div>
+  </div>
+
+  <!-- TELA DE VITÓRIA -->
+  <div id="win-screen" class="screen hidden">
+    <div class="end-card">
+      <div class="win-emoji" id="win-emoji">🏆</div>
+      <h1 id="win-title">BINGO!</h1>
+      <div class="win-message" id="win-message"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="bingo.js"></script>
+</body>
+</html>

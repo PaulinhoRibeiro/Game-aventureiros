@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏕️ Jogo dos Aventureiros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="index.html" class="back-btn">← Menu</a>
+  <!-- CABEÇALHO -->
+  <header>
+    <h1>🏕️ Jogo dos Aventureiros - ARCA DE NOÉ</h1>
+    <div id="current-team-display">
+      <span id="current-team-emoji">🐻</span>
+      <span id="current-team-name">Equipe Urso</span>
+    </div>
+  </header>
+
+  <!-- ÁREA PRINCIPAL -->
+  <main>
+    <div id="board-container">
+      <div id="board"></div>
+    </div>
+
+    <aside id="side-panel">
+      <h2>🏆 Placar</h2>
+      <div id="scoreboard"></div>
+
+      <div id="dice-area">
+        <div id="dice">?</div>
+        <button id="roll-btn">🎲 Rolar Dado</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- MODAL DE PERGUNTA -->
+  <div id="question-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="question-header">
+        <span id="question-space-icon">📖</span>
+        <span id="question-team-name">Equipe</span>
+      </div>
+      <p id="question-text">Pergunta aqui</p>
+      <div id="options-container"></div>
+      <div id="feedback"></div>
+      <button id="continue-btn" class="hidden">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE VITÓRIA -->
+  <div id="win-modal" class="modal hidden">
+    <div class="modal-content win">
+      <h2>🎉 Temos um vencedor! 🎉</h2>
+      <div id="winner-display"></div>
+      <button id="play-again-btn">Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

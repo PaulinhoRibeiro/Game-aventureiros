@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🃏 Jogo da Memória — Aventureiros</title>
+  <link rel="stylesheet" href="memoria.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🃏</div>
+      <h1>Jogo da Memória</h1>
+      <p>Encontrem os pares de símbolos do Clube de Aventureiros!</p>
+      <div class="start-rules">
+        <div>🃏 A equipe vira <strong>2 cartas</strong> por vez</div>
+        <div>✅ Acertou o par → <strong>+1 ponto e joga de novo</strong></div>
+        <div>❌ Errou → a vez passa para a próxima equipe</div>
+        <div>🏆 Quando todos os 12 pares forem encontrados, vence quem tiver mais!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <h1>🃏 Jogo da Memória</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+      <div class="pairs-counter">
+        <span id="pairs-found">0</span> / <span id="pairs-total">12</span> pares encontrados
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="board" id="board"></div>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- MODAL DE PAR ENCONTRADO -->
+  <div id="match-modal" class="modal hidden">
+    <div class="modal-content match-content">
+      <div class="match-emoji" id="match-emoji">🎉</div>
+      <h2>Par encontrado!</h2>
+      <div class="match-info" id="match-info"></div>
+      <button id="match-continue-btn" class="btn-primary">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="memoria.js"></script>
+</body>
+</html>

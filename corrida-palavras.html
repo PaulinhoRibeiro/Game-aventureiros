@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ Corrida das Palavras — Aventureiros</title>
+  <link rel="stylesheet" href="corrida-palavras.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">⚡</div>
+      <h1>Corrida das Palavras</h1>
+      <p>Reorganizem as letras e formem a palavra antes do tempo acabar!</p>
+      <div class="start-rules">
+        <div>⚡ Cada rodada mostra uma palavra embaralhada</div>
+        <div>⏱️ 30 segundos para montar</div>
+        <div>✅ Acertou → +1 ponto e vai para a próxima</div>
+        <div>❌ Errou ou o tempo acabar → a vez passa</div>
+        <div>🏆 3 palavras por equipe — vence quem tiver mais pontos!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Corrida</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-info-text">Rodada 1 de 12</span>
+      </div>
+      <h1>⚡ Corrida das Palavras</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="timer-container">
+        <div class="timer-fill" id="timer-fill"></div>
+        <span class="timer-text" id="timer-text">30</span>
+      </div>
+
+      <div class="hint-box">
+        <span class="hint-icon">💡</span>
+        <span id="hint-text">Dica da palavra</span>
+      </div>
+
+      <div class="track">
+        <div class="scrambled-area">
+          <p class="label-scrambled">Palavra embaralhada:</p>
+          <div class="scrambled-letters" id="scrambled-letters"></div>
+        </div>
+
+        <div class="answer-area">
+          <p class="label-answer">Sua resposta:</p>
+          <div class="answer-slots" id="answer-slots"></div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="clear-btn" class="btn-clear">⌫ Apagar</button>
+        <button id="submit-btn" class="btn-submit" disabled>✅ Verificar</button>
+      </div>
+
+      <div class="feedback-panel hidden" id="feedback-panel">
+        <div id="feedback-title"></div>
+        <div id="feedback-text"></div>
+      </div>
+
+      <button id="next-btn" class="next-btn hidden">Próxima Rodada →</button>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim da Corrida!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Correr Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="corrida-palavras.js"></script>
+</body>
+</html>

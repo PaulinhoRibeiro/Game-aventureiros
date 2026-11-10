@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎯 Batalha dos Dados — Aventureiros</title>
+  <link rel="stylesheet" href="batalha-dados.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🎯</div>
+      <h1>Batalha dos Dados</h1>
+      <p>Acertem as perguntas para atacar e derrubar os campeões adversários!</p>
+      <div class="start-rules">
+        <div>❤️ Cada equipe começa com <strong>100 HP</strong></div>
+        <div>🎲 Acertou a pergunta → role o dado para atacar</div>
+        <div>💥 Dano = dado × 5 (5 a 30 de dano)</div>
+        <div>⚡ Tirar 6 no dado = <strong>golpe crítico</strong> (dano em dobro)</div>
+        <div>❌ Errou → perde a vez</div>
+        <div>🏆 Última equipe com HP vence!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">⚔️ Começar Batalha</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-info-text">Rodada 1</span>
+      </div>
+      <h1>⚔️ Batalha dos Dados</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <!-- ARENA DE BATALHA -->
+      <div class="arena" id="arena"></div>
+
+      <!-- CARD DA PERGUNTA -->
+      <div class="question-card" id="question-card">
+        <p id="question-text">Carregando pergunta...</p>
+      </div>
+
+      <div class="options-grid" id="options-container"></div>
+
+      <div class="feedback-panel hidden" id="feedback-panel">
+        <div id="feedback-title"></div>
+        <div id="feedback-text"></div>
+      </div>
+
+      <button id="next-btn" class="next-btn hidden">Continuar →</button>
+    </main>
+  </div>
+
+  <!-- MODAL DE ATAQUE -->
+  <div id="attack-modal" class="modal hidden">
+    <div class="modal-content attack">
+      <div class="attack-title">🎲 Role o dado!</div>
+      <div class="dice-display" id="dice-display">?</div>
+      <button id="roll-attack-btn" class="btn-roll">🎲 Rolar Dado</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE SELEÇÃO DE ALVO -->
+  <div id="target-modal" class="modal hidden">
+    <div class="modal-content target">
+      <div class="target-title">🎯 Escolha o alvo!</div>
+      <div class="target-list" id="target-list"></div>
+    </div>
+  </div>
+
+  <!-- MODAL DE RESULTADO DO ATAQUE -->
+  <div id="result-modal" class="modal hidden">
+    <div class="modal-content result">
+      <div class="result-emoji" id="result-emoji">💥</div>
+      <div class="result-title" id="result-title">Ataque!</div>
+      <div class="result-text" id="result-text"></div>
+      <button id="result-continue-btn" class="btn-primary">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- TELA DE VITÓRIA -->
+  <div id="win-screen" class="screen hidden">
+    <div class="end-card win">
+      <div class="win-emoji" id="win-emoji">🏆</div>
+      <h1 id="win-title">Equipe venceu!</h1>
+      <div class="win-message" id="win-message"></div>
+      <div class="win-stats" id="win-stats"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="batalha-dados.js"></script>
+</body>
+</html>

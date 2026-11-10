@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔴🟡 Ligue 4 — Aventureiros</title>
+  <link rel="stylesheet" href="ligue-4.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🔴🟡</div>
+      <h1>Ligue 4</h1>
+      <p>Para colocar uma peça, a equipe precisa <strong>acertar a pergunta</strong>!</p>
+      <div class="start-rules">
+        <div>🔴 2 equipes: <strong id="team-x-label">🐻 Equipe Urso</strong> vs <strong id="team-o-label">🐰 Equipe Coelho</strong></div>
+        <div>🎯 Escolham a coluna, respondam a pergunta</div>
+        <div>✅ Acertou → a peça cai na coluna</div>
+        <div>❌ Errou → a vez passa sem colocar peça</div>
+        <div>🏆 Primeiro a fazer <strong>4 em linha</strong> (linha, coluna ou diagonal) vence!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <h1>🔴🟡 Ligue 4</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+        <span class="turn-symbol" id="turn-symbol">🔴</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="board-wrapper">
+        <div class="board" id="board"></div>
+      </div>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- MODAL DE PERGUNTA -->
+  <div id="question-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="question-header">
+        <span id="question-team-badge">🐻 Equipe Urso</span>
+        <span id="question-column-badge">Coluna 4</span>
+      </div>
+      <p id="question-text">Pergunta aqui</p>
+      <div id="options-container"></div>
+      <div id="feedback" class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- MODAL DE VITÓRIA -->
+  <div id="win-modal" class="modal hidden">
+    <div class="modal-content win">
+      <div class="win-emoji" id="win-emoji">🏆</div>
+      <h2 id="win-title">Temos um vencedor!</h2>
+      <div id="win-message"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="ligue-4.js"></script>
+</body>
+</html>

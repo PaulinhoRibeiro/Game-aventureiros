@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌲 Labirinto Aventureiro</title>
+  <link rel="stylesheet" href="labirinto.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🌲</div>
+      <h1>Labirinto Aventureiro</h1>
+      <p>O Ursinho Beto precisa atravessar a floresta até o acampamento antes do anoitecer!</p>
+      <div class="story-box">
+        <p>🛤️ A cada bifurcação, uma pergunta.</p>
+        <p>✅ Acertando, o Beto segue o caminho certo.</p>
+        <p>❌ Errando, ele perde uma vida e tenta de novo.</p>
+      </div>
+      <div class="rules-info">
+        <div>🚪 <strong>5 estágios</strong> para atravessar</div>
+        <div>❤️ <strong>3 vidas</strong> no total</div>
+        <div>🏆 Chegue ao acampamento para vencer</div>
+      </div>
+      <button id="start-btn" class="btn-primary">🌲 Começar Aventura</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="hearts" id="hearts"></div>
+      <h1>🌲 Labirinto Aventureiro</h1>
+      <div class="stage-info">Estágio <strong id="stage-num">1</strong> de 5</div>
+    </header>
+
+    <main class="game-main">
+      <div class="trail-container" id="trail-container">
+        <div class="trail-nodes" id="trail-nodes"></div>
+        <div class="character-float" id="character">
+          <span class="char-emoji">🐻</span>
+        </div>
+      </div>
+
+      <div class="stage-story" id="stage-story">
+        O Ursinho Beto está pronto para partir...
+      </div>
+
+      <div class="question-card" id="question-card">
+        <p id="question-text">Carregando pergunta...</p>
+      </div>
+
+      <div class="options-grid" id="options-container"></div>
+
+      <div class="feedback-panel hidden" id="feedback-panel">
+        <div id="feedback-title"></div>
+        <div id="feedback-text"></div>
+      </div>
+
+      <button id="next-btn" class="next-btn hidden">Continuar →</button>
+    </main>
+  </div>
+
+  <!-- TELA DE VITÓRIA -->
+  <div id="win-screen" class="screen hidden">
+    <div class="end-card win">
+      <div class="win-emoji">🏆</div>
+      <h1>Chegou ao acampamento!</h1>
+      <div class="win-story">
+        O Ursinho Beto chegou a salvo antes do anoitecer!<br>
+        <em>"O maior tesouro é a amizade e o amor de Jesus."</em>
+      </div>
+      <div class="win-stats" id="win-stats"></div>
+      <button id="play-again-win" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <!-- TELA DE DERROTA -->
+  <div id="lose-screen" class="screen hidden">
+    <div class="end-card lose">
+      <div class="lose-emoji">💔</div>
+      <h1>Sem vidas!</h1>
+      <div class="lose-story">
+        O Ursinho Beto se perdeu na floresta... mas pode tentar de novo!<br>
+        Ele chegou até o <strong id="lose-stage">Estágio 1</strong>.
+      </div>
+      <button id="play-again-lose" class="btn-primary">🔁 Tentar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="labirinto.js"></script>
+</body>
+</html>

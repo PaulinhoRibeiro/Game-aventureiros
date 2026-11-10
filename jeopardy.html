@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💡 Jeopardy dos Aventureiros</title>
+  <link rel="stylesheet" href="jeopardy.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">💡</div>
+      <h1>Jeopardy dos Aventureiros</h1>
+      <p>A equipe da vez escolhe uma <strong>categoria</strong> e um <strong>valor</strong>.<br>Respondam juntos!</p>
+      <div class="start-rules">
+        <div>💡 5 categorias × 4 perguntas = 20 rodadas</div>
+        <div>💯 Acertou → <strong>ganha os pontos</strong> da casa</div>
+        <div>❌ Errou → <strong>perde os pontos</strong> (não fica negativo)</div>
+        <div>🏆 Vence quem tiver mais pontos no final!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="jeopardy-header">
+      <div class="team-badge" id="team-badge">
+        <span class="team-emoji" id="team-emoji">🐻</span>
+        <span class="team-name" id="team-name">Equipe Urso</span>
+      </div>
+      <h1>💡 Jeopardy</h1>
+      <div class="score-summary" id="score-summary"></div>
+    </header>
+
+    <div id="board" class="board"></div>
+  </div>
+
+  <!-- MODAL DE PERGUNTA -->
+  <div id="question-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="question-header">
+        <span id="question-category">Categoria</span>
+        <span id="question-value">100 pts</span>
+      </div>
+      <div class="question-team" id="question-team"></div>
+      <p id="question-text">Pergunta aqui</p>
+      <div id="options-container"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="continue-btn" class="hidden">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="jeopardy.js"></script>
+</body>
+</html>

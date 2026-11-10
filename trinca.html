@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💎 Trinca Aventureira — Match 3</title>
+  <link rel="stylesheet" href="trinca.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">💎</div>
+      <h1>Trinca Aventureira</h1>
+      <p>Combinem 3 ou mais símbolos iguais e explodam a grade!</p>
+      <div class="start-rules">
+        <div>💎 Cada equipe tem <strong>60 segundos</strong></div>
+        <div>👆 Clique numa peça e depois na peça ao lado para trocar</div>
+        <div>✨ 3+ iguais em linha → EXPLODEM e valem pontos</div>
+        <div>⚡ Combos em cascata multiplicam os pontos!</div>
+        <div>🏆 Quem fizer mais pontos em 60s vence!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">💎 Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE PREPARAÇÃO (entre turnos) -->
+  <div id="ready-modal" class="modal hidden">
+    <div class="modal-content ready-content">
+      <div class="ready-emoji" id="ready-emoji">🐻</div>
+      <h2 id="ready-title">Vez da Equipe Urso!</h2>
+      <div id="ready-info">Você tem <strong>60 segundos</strong> para fazer o máximo de pontos.</div>
+      <button id="ready-start-btn" class="btn-primary">▶ Começar Turno</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="team-badge" id="team-badge">
+        <span class="team-emoji" id="team-emoji">🐻</span>
+        <span class="team-name" id="team-name">Equipe Urso</span>
+      </div>
+
+      <div class="timer-box" id="timer-box">
+        <div class="timer-fill" id="timer-fill"></div>
+        <span class="timer-text" id="timer-text">60</span>
+      </div>
+
+      <div class="score-box">
+        <span class="score-label">PONTOS</span>
+        <span class="score-value" id="score-value">0</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="grid-wrapper">
+        <div class="grid" id="grid"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL DE FIM DE TURNO -->
+  <div id="turn-end-modal" class="modal hidden">
+    <div class="modal-content turn-end">
+      <div class="turn-end-emoji" id="turn-end-emoji">🐻</div>
+      <h2>Turno encerrado!</h2>
+      <div id="turn-end-score"></div>
+      <div id="turn-end-next"></div>
+      <button id="next-team-btn" class="btn-primary">▶ Próxima Equipe</button>
+    </div>
+  </div>
+
+  <!-- TELA DE VITÓRIA -->
+  <div id="win-screen" class="screen hidden">
+    <div class="end-card">
+      <div class="win-emoji" id="win-emoji">🏆</div>
+      <h1 id="win-title">Temos um campeão!</h1>
+      <div class="win-message" id="win-message"></div>
+      <div class="win-stats" id="win-stats"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="trinca.js"></script>
+</body>
+</html>

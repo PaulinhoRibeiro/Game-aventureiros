@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔐 Sala de Escape — Simon das Cores</title>
+  <link rel="stylesheet" href="sala-de-escape.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🎨</div>
+      <h1>Simon das Cores</h1>
+      <p>O tesouro do Clube está trancado atrás de <strong>6 portas mágicas</strong>. Cada porta tem uma sequência de cores que vocês precisam memorizar e repetir!</p>
+      <div class="story-text">
+        <p>🔴🟢🟡🔵 <strong>Observem</strong> a sequência piscar</p>
+        <p>👆 <strong>Repitam</strong> na mesma ordem</p>
+        <p>🚪 Acertou → a porta abre. Errou → −30s no relógio.</p>
+        <p>⏱️ Vocês têm <strong>12 minutos</strong>. Cada porta é mais difícil!</p>
+      </div>
+      <button id="start-btn" class="btn-primary">🔑 Entrar na Sala</button>
+    </div>
+  </div>
+
+  <div id="game-screen" class="screen hidden">
+    <header class="escape-header">
+      <div class="timer-box" id="timer-box">
+        <span class="timer-label">⏱️</span>
+        <span class="timer-value" id="timer">12:00</span>
+      </div>
+      <div class="doors-progress" id="doors-progress"></div>
+      <div class="room-counter" id="room-counter">Porta 1 de 6</div>
+    </header>
+
+    <main class="escape-main" id="escape-main"></main>
+  </div>
+
+  <div id="transition-modal" class="modal hidden">
+    <div class="modal-content transition-content">
+      <div class="transition-emoji" id="transition-emoji">🚪</div>
+      <h2 id="transition-title">Porta aberta!</h2>
+      <p id="transition-message">Próxima porta...</p>
+    </div>
+  </div>
+
+  <div id="win-screen" class="screen hidden">
+    <div class="end-card win">
+      <div class="win-emoji">🏆</div>
+      <h1>O tesouro é de vocês!</h1>
+      <div class="win-story">
+        A última porta se abriu e o baú brilhou. Dentro dele havia uma mensagem:<br>
+        <em>"O maior tesouro de um Aventureiro é o amor de Jesus e a amizade da equipe."</em>
+      </div>
+      <div class="win-time" id="win-time"></div>
+      <div class="win-stats" id="win-stats"></div>
+      <button id="play-again-win" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <div id="lose-screen" class="screen hidden">
+    <div class="end-card lose">
+      <div class="lose-emoji">⏰</div>
+      <h1>Tempo esgotado!</h1>
+      <div class="lose-story">
+        O relógio parou... mas não desistam! Vocês chegaram até a <strong id="lose-room">Porta 1</strong>.
+      </div>
+      <div class="lose-stats" id="lose-stats"></div>
+      <button id="play-again-lose" class="btn-primary">🔁 Tentar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="sala-de-escape.js"></script>
+</body>
+</html>

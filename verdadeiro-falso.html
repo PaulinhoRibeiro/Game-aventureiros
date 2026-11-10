@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅❌ Verdadeiro ou Falso — Aventureiros</title>
+  <link rel="stylesheet" href="verdadeiro-falso.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">✅❌</div>
+      <h1>Verdadeiro ou Falso</h1>
+      <p>Uma afirmação por rodada. <strong>15 segundos</strong> para decidir!</p>
+      <div class="start-rules">
+        <div>📖 Cada equipe recebe uma afirmação</div>
+        <div>⏱️ 15 segundos para responder</div>
+        <div>✅ Acertou → +1 ponto</div>
+        <div>❌ Errou ou o tempo acabar → não pontua</div>
+        <div>🏆 3 rodadas por equipe — vence quem tiver mais pontos!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-info-text">Rodada 1 de 12</span>
+      </div>
+      <h1>✅❌ Verdadeiro ou Falso</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="timer-container">
+        <div class="timer-bar" id="timer-bar"></div>
+        <div class="timer-number" id="timer-number">15</div>
+      </div>
+
+      <div class="statement-card" id="statement-card">
+        <p id="statement-text">Carregando afirmação...</p>
+      </div>
+
+      <div class="answer-buttons" id="answer-buttons">
+        <button id="true-btn" class="answer-btn true-btn" disabled>
+          <span class="btn-emoji">✅</span>
+          <span class="btn-text">VERDADEIRO</span>
+        </button>
+        <button id="false-btn" class="answer-btn false-btn" disabled>
+          <span class="btn-emoji">❌</span>
+          <span class="btn-text">FALSO</span>
+        </button>
+      </div>
+
+      <div class="feedback-panel hidden" id="feedback-panel">
+        <div id="feedback-title"></div>
+        <div id="feedback-text"></div>
+      </div>
+
+      <button id="next-btn" class="next-btn hidden">Próxima Rodada →</button>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="verdadeiro-falso.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧩 Caça-palavras — Aventureiros</title>
+  <link rel="stylesheet" href="caca-palavras.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🧩</div>
+      <h1>Caça-palavras</h1>
+      <p>Encontrem as palavras escondidas na grade antes que o tempo acabe!</p>
+      <div class="start-rules">
+        <div>🧩 3 rodadas com grades maiores</div>
+        <div>⏱️ Cronômetro em cada rodada (90s / 120s / 150s)</div>
+        <div>👆 Clique na <strong>primeira</strong> letra e depois na <strong>última</strong></div>
+        <div>↔️ Palavras na horizontal, vertical ou diagonal (frente e trás!)</div>
+        <div>✅ Acertou → +1 ponto e passa a vez</div>
+        <div>❌ Errou → passa a vez sem pontuar</div>
+        <div>🏆 Quem tiver mais pontos no final vence!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">🔍 Começar Busca</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-info-text">Rodada 1 de 3</span>
+        <span class="round-sep">·</span>
+        <span id="round-theme">Símbolos</span>
+      </div>
+      <h1>🧩 Caça-palavras</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+      <div class="timer-box" id="timer-box">
+        <div class="timer-fill" id="timer-fill"></div>
+        <span class="timer-text" id="timer-text">90</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="grid-wrapper">
+        <div class="grid" id="grid"></div>
+      </div>
+
+      <aside class="side-panel">
+        <div class="words-box">
+          <h3>🎯 Palavras para encontrar</h3>
+          <div class="word-list" id="word-list"></div>
+        </div>
+
+        <div class="feedback-banner hidden" id="feedback-banner"></div>
+      </aside>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="caca-palavras.js"></script>
+</body>
+</html>

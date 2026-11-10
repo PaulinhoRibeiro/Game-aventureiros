@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎡 Roleta de Desafios — Aventureiros</title>
+  <link rel="stylesheet" href="roleta.css">
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Menu</a>
+
+  <!-- TELA INICIAL -->
+  <div id="start-screen" class="screen">
+    <div class="start-card">
+      <div class="start-emoji">🎡</div>
+      <h1>Roleta de Desafios</h1>
+      <p>Gire a roleta e encare o que cair:<br>pergunta, desafio físico, bônus ou perde a vez!</p>
+      <div class="start-rules">
+        <div>📖 <strong>Pergunta</strong> → acertou, ganha pontos</div>
+        <div>🏃 <strong>Desafio físico</strong> → complete e ganhe pontos</div>
+        <div>⭐ <strong>Bônus</strong> → pontos de graça!</div>
+        <div>😅 <strong>Perde a vez</strong> → passa a vez sem pontos</div>
+        <div>🏆 2 rodadas por equipe — vence quem tiver mais pontos!</div>
+      </div>
+      <button id="start-btn" class="btn-primary">▶ Começar Jogo</button>
+    </div>
+  </div>
+
+  <!-- TELA DO JOGO -->
+  <div id="game-screen" class="screen hidden">
+    <header class="game-header">
+      <div class="round-info">
+        <span id="round-info-text">Rodada 1 de 8</span>
+      </div>
+      <h1>🎡 Roleta de Desafios</h1>
+      <div class="turn-indicator" id="turn-indicator">
+        <span class="turn-emoji" id="turn-emoji">🐻</span>
+        <span class="turn-name" id="turn-name">Vez da Equipe Urso</span>
+      </div>
+    </header>
+
+    <main class="game-main">
+      <div class="wheel-wrapper">
+        <div class="wheel-pointer">▼</div>
+        <div class="wheel" id="wheel"></div>
+        <div class="wheel-hub">🎯</div>
+      </div>
+
+      <button id="spin-btn" class="spin-btn">🎡 Girar Roleta</button>
+    </main>
+
+    <footer class="scoreboard" id="scoreboard"></footer>
+  </div>
+
+  <!-- MODAL: PERGUNTA -->
+  <div id="question-modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="question-header">
+        <span id="question-team-badge">🐻 Equipe Urso</span>
+        <span id="question-points-badge">+10 pts</span>
+      </div>
+      <p id="question-text">Pergunta aqui</p>
+      <div id="options-container"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="continue-btn" class="hidden">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- MODAL: DESAFIO FÍSICO -->
+  <div id="challenge-modal" class="modal hidden">
+    <div class="modal-content challenge-content">
+      <h2>🏃 Desafio Físico!</h2>
+      <div id="challenge-team"></div>
+      <div id="challenge-text"></div>
+      <div id="challenge-points"></div>
+      <button id="challenge-done-btn" class="btn-success">✅ Concluímos!</button>
+    </div>
+  </div>
+
+  <!-- MODAL: BÔNUS -->
+  <div id="bonus-modal" class="modal hidden">
+    <div class="modal-content bonus-content">
+      <div class="bonus-emoji">⭐</div>
+      <h2>Bônus!</h2>
+      <div id="bonus-team"></div>
+      <div id="bonus-points"></div>
+      <button id="bonus-continue-btn" class="btn-primary">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- MODAL: PERDEU A VEZ -->
+  <div id="lose-modal" class="modal hidden">
+    <div class="modal-content lose-content">
+      <div class="lose-emoji">😅</div>
+      <h2>Perdeu a vez!</h2>
+      <div id="lose-team"></div>
+      <div class="lose-message">A equipe não pontuou nesta rodada.</div>
+      <button id="lose-continue-btn" class="btn-primary">Continuar →</button>
+    </div>
+  </div>
+
+  <!-- TELA FINAL -->
+  <div id="end-screen" class="screen hidden">
+    <div class="end-card">
+      <h1>🏆 Fim de Jogo!</h1>
+      <div id="winner-display"></div>
+      <div id="final-scores"></div>
+      <button id="play-again-btn" class="btn-primary">🔁 Jogar Novamente</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="perguntas.js"></script>
+  <script src="equipes.js"></script>
+  <script src="sons.js"></script>
+  <script src="confetes.js"></script>
+  <script src="roleta.js"></script>
+</body>
+</html>
